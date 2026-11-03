@@ -4,131 +4,667 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Trexy - From Nunoy</title>
+<title>For My Trexy ♡</title>
+
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;min-height:100vh;
- font-family:Georgia,'Times New Roman',serif;
- background:linear-gradient(145deg,#ffe6ee,#f8c6d8,#eadcff);
- color:#713b53;text-align:center;overflow-x:hidden
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap');
+
+:root {
+  --pink:#ff76ad;
+  --dark:#b83d75;
+  --border:#ffc0d9;
 }
-main{max-width:650px;margin:auto;padding:45px 20px 70px}
-.top-heart{font-size:45px;animation:beat 1.3s infinite}
-h1{font-size:clamp(34px,8vw,48px);margin:15px 0}
-.subtitle{font-family:Arial,sans-serif;letter-spacing:3px;font-size:11px}
-p{line-height:1.9}
-.card{
- background:#ffffffdb;padding:25px;border-radius:24px;
- box-shadow:0 12px 35px #a85b7b20;margin:25px 0
+
+* {box-sizing:border-box;margin:0;padding:0}
+body {
+  font-family:'Quicksand',sans-serif;
+  color:var(--dark);
+  background:#ffeaf3;
+  min-height:100vh;
+  overflow-x:hidden;
 }
-button{
- border:0;border-radius:30px;padding:14px 22px;
- background:#d94e83;color:white;font-size:15px;
- cursor:pointer;margin:8px;font-weight:bold;
- transition:transform .2s
+
+button,select {font:inherit}
+
+.screen {
+  display:none;
+  min-height:100vh;
+  padding:35px 16px 110px;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  background:
+    radial-gradient(circle,#fff 1.5px,transparent 2px) 0 0/35px 35px,
+    linear-gradient(145deg,#ffeaf4,#ffd0e4,#fff0f6);
 }
-button:hover{transform:scale(1.04)}
-#letter{
- display:none;text-align:left;line-height:1.95;
- background:#fffafc;padding:23px;border-radius:18px;
- margin-top:22px;white-space:pre-line;
+
+.screen.active {
+  display:flex;
+  animation:screenIn .65s ease both;
 }
-#answer{min-height:30px;line-height:1.8;margin-top:12px}
-.small{font-family:Arial,sans-serif;font-size:13px}
-footer{font-family:Arial,sans-serif;font-size:12px;opacity:.7;margin-top:35px}
-.float{
- position:fixed;bottom:-35px;animation:rise 7s linear forwards;
- pointer-events:none;z-index:-1
+
+@keyframes screenIn {
+  from {opacity:0;transform:translateY(20px) scale(.98)}
+  to {opacity:1;transform:translateY(0) scale(1)}
 }
-@keyframes beat{50%{transform:scale(1.13)}}
-@keyframes rise{
- to{transform:translateY(-110vh) rotate(30deg);opacity:0}
+
+h1 {
+  font-family:'Pacifico',cursive;
+  font-size:clamp(28px,7vw,43px);
+  line-height:1.35;
+  margin:12px 0;
+  color:#d94f91;
+}
+
+h2 {margin:12px 0}
+p {
+  line-height:1.8;
+  margin:10px auto;
+  max-width:500px;
+}
+
+.card {
+  width:min(100%,530px);
+  background:rgba(255,255,255,.88);
+  border:3px solid white;
+  outline:2px solid var(--border);
+  border-radius:30px;
+  padding:26px 20px;
+  box-shadow:0 15px 40px #c94b8525;
+  margin:12px auto;
+  text-align:center;
+}
+
+button {
+  border:2px solid white;
+  background:linear-gradient(135deg,#ff91bc,#ed5e9c);
+  color:white;
+  padding:13px 23px;
+  border-radius:30px;
+  margin:7px;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+  box-shadow:0 6px 15px #d84e8b35;
+  transition:.25s;
+}
+
+button:hover {transform:translateY(-4px) scale(1.04)}
+button:active {transform:scale(.94)}
+
+.back {
+  color:#d94f91;
+  background:white;
+  border:2px solid #ffc0d9;
+  box-shadow:none;
+}
+
+.sticker {
+  font-size:85px;
+  display:inline-block;
+  filter:drop-shadow(0 8px 5px #d85b9030);
+}
+
+.bounce {animation:bounce 2s infinite ease-in-out}
+@keyframes bounce {
+  0%,100% {transform:translateY(0) rotate(-3deg)}
+  50% {transform:translateY(-15px) rotate(3deg)}
+}
+
+.photo {<img src="Screenshot 2026-11-03 174612.jpg" class="photo" alt="Our favorite picture">
+  display:block;
+  width:min(100%,370px);
+  border:8px solid white;
+  border-radius:25px;
+  margin:18px auto;
+  box-shadow:0 10px 25px #c94b8540;
+  transform:rotate(-2deg);
+  transition:.4s;
+}
+.photo:hover {transform:rotate(0) scale(1.03)}
+
+.gift-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin:22px 0;
+}
+
+.gift-choice {
+  background:#fff0f6;
+  border:2px solid #ffc3dc;
+  border-radius:22px;
+  padding:16px 5px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.gift-choice:hover {
+  transform:translateY(-8px) rotate(-2deg);
+  background:#ffe0ed;
+}
+
+.gift-choice span {
+  display:block;
+  font-size:43px;
+  margin-bottom:8px;
+  animation:bob 2s infinite ease-in-out;
+}
+
+.gift-choice:nth-child(2) span {animation-delay:.3s}
+.gift-choice:nth-child(3) span {animation-delay:.6s}
+
+@keyframes bob {
+  0%,100% {transform:translateY(0)}
+  50% {transform:translateY(-7px)}
+}
+
+/* Flowers */
+.flower-bouquet {
+  font-size:90px;
+  animation:sway 3s infinite ease-in-out;
+  transform-origin:bottom center;
+}
+@keyframes sway {
+  0%,100% {transform:rotate(-8deg)}
+  50% {transform:rotate(8deg)}
+}
+
+/* Envelope */
+.envelope {
+  font-size:100px;
+  display:inline-block;
+  cursor:pointer;
+  animation:envelopeFloat 2s infinite ease-in-out;
+}
+@keyframes envelopeFloat {
+  0%,100% {transform:translateY(0) rotate(-4deg)}
+  50% {transform:translateY(-12px) rotate(4deg)}
+}
+
+.letter {
+  display:none;
+  text-align:left;
+  background:#fffafc;
+  border:2px dashed #ef9cbd;
+  border-radius:18px;
+  padding:22px;
+  line-height:1.9;
+  max-height:55vh;
+  overflow-y:auto;
+  margin-top:20px;
+  color:#75405a;
+  overflow-wrap:anywhere;
+}
+
+.letter.show {display:block;animation:letterOpen .8s ease both}
+.letter p {margin:14px 0}
+.letter h2 {
+  text-align:center;
+  font-family:'Pacifico',cursive;
+  color:#d94f91;
+}
+
+@keyframes letterOpen {
+  from {opacity:0;transform:translateY(25px) scale(.9)}
+  to {opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* Gift */
+.giftbox {
+  font-size:105px;
+  display:inline-block;
+  cursor:pointer;
+  animation:shake 2s infinite;
+}
+@keyframes shake {
+  0%,85%,100% {transform:rotate(0)}
+  88% {transform:rotate(-10deg)}
+  92% {transform:rotate(10deg)}
+  96% {transform:rotate(-6deg)}
+}
+
+.reveal {display:none;animation:pop .6s ease both}
+.reveal.show {display:block}
+@keyframes pop {
+  from {opacity:0;transform:scale(.3)}
+  to {opacity:1;transform:scale(1)}
+}
+
+.gift-photo {width:min(100%,340px)}
+.cute-caption {
+  color:#d94f91;
+  font-weight:700;
+  font-size:14px;
+  margin:16px auto;
+}
+
+.ascii-note {
+  background:#fff3f8;
+  border:1px dashed #f2a2c3;
+  border-radius:18px;
+  padding:14px 8px;
+  margin:18px auto;
+  max-width:100%;
+  overflow-x:auto;
+}
+
+.ascii-note pre {
+  display:table;
+  margin:0 auto 18px;
+  color:#c34d83;
+  font-family:monospace;
+  font-size:8px;
+  line-height:1.15;
+  white-space:pre;
+}
+.ascii-note pre:last-child {margin-bottom:0}
+
+/* Floating decorations */
+.float-item {
+  position:fixed;
+  bottom:-40px;
+  pointer-events:none;
+  z-index:20;
+  animation:floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  to {transform:translateY(-115vh) rotate(360deg);opacity:0}
+}
+
+/* Confetti */
+.confetti {
+  position:fixed;
+  top:-20px;
+  z-index:100;
+  pointer-events:none;
+  animation:confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+  to {transform:translateY(110vh) rotate(800deg);opacity:0}
+}
+
+/* Music */
+.music-player {
+  position:fixed;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:50;
+  background:#fff;
+  padding:9px 12px;
+  border:2px solid #ffc0d9;
+  border-radius:22px;
+  box-shadow:0 5px 20px #b83d7525;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  width:min(95%,430px);
+  justify-content:center;
+}
+
+.music-player select {
+  min-width:0;
+  max-width:190px;
+  padding:9px;
+  border-radius:15px;
+  border:1px solid #ffc0d9;
+  color:#b83d75;
+  background:#fff5f9;
+}
+
+.music-player button {
+  margin:0;
+  padding:9px 13px;
+}
+
+.player-box {
+  display:none;
+  position:fixed;
+  bottom:78px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:49;
+  width:min(92vw,340px);
+  padding:8px;
+  background:white;
+  border:2px solid #ffc0d9;
+  border-radius:18px;
+  box-shadow:0 5px 20px #b83d7530;
+}
+
+.player-box.show {display:block}
+.player-box iframe {
+  display:block;
+  width:100%;
+  height:170px;
+  border:0;
+  border-radius:12px;
+  margin:0;
+}
+
+@media(max-width:430px) {
+  .gift-grid {gap:6px}
+  .gift-choice {font-size:12px;padding:13px 3px}
+  .gift-choice span {font-size:35px}
+  .card {padding:23px 15px}
+  .sticker {font-size:72px}
+  .ascii-note pre {font-size:7px}
 }
 </style>
 </head>
+
 <body>
-<main>
- <div class="top-heart">♡</div>
- <p class="subtitle">A LITTLE SOMETHING MADE JUST FOR YOU</p>
- <h1>Hey, Trexy.</h1>
- <p>From your favorite makulit person, Nunoy.</p>
 
- <section class="card">
-  <h2>A little surprise for you</h2>
-  <p>I made this little website just for you. It may not be perfect, but I hope it makes you smile.</p>
-  <button onclick="openLetter()">Open your letter</button>
+<!-- WELCOME -->
+<section class="screen active" id="welcome">
+  <div class="sticker bounce">🧸💗</div>
+  <h1>A Little Surprise<br>For You ♡</h1>
+  <p>I made something special just for you, Trexyyy.</p>
+  <img src="couple.png" class="photo" alt="Our favorite picture">
+  <button onclick="showScreen('gifts')">OPEN MY SURPRISE ♡</button>
+  <p>Made with love by your Nunoy.</p>
+</section>
 
-  <div id="letter">Helloooo Trexyyy!! It's meee, Nunoyyy! HWEHWEHWE.
+<!-- GIFTS -->
+<section class="screen" id="gifts">
+  <div class="card">
+    <div class="sticker bounce">🎀</div>
+    <h1>Choose a Gift!</h1>
+    <p>Pick anything you like. I have little surprises for you!</p>
 
-Eto pala yung ginagawa ko ngayon, nagco-coding pa ako para sa'yo. HAHAHAHA. Sorry kung natagalan ha, mahal. I hope you like this little surprise na ginawa ko for you. Hindi man siya perfect, pero ginawa ko 'to with so much love, specifically para sa'yo. Hehe.
+    <div class="gift-grid">
+      <div class="gift-choice" onclick="showScreen('flower')">
+        <span>💐</span>Flower for you
+      </div>
+      <div class="gift-choice" onclick="showScreen('letter')">
+        <span>💌</span>Love letter
+      </div>
+      <div class="gift-choice" onclick="showScreen('gift')">
+        <span>🎁</span>Little gift
+      </div>
+    </div>
 
-So ayun, Trexy, I just want to say na I'm so, so, SO happy na nandito ka na sa life ko. Like, grabe, ang laki talaga ng pinagbago simula nung dumating ka. Sobrang saya ko, and honestly, parang kulang na yung salitang mahal kita para sabihin kung gaano kita kamahal. Gusto ko rin maramdaman mo kung gaano ka kahalaga sa akin, kasi you deserve to feel loved, appreciated, and cared for.
+    <button onclick="showScreen('question')">One more surprise ♡</button>
+    <br>
+    <button class="back" onclick="showScreen('welcome')">← Back</button>
+  </div>
+</section>
 
-Trexy, stay with me, no matter what, ha? Kapag may tampuhan tayo, ayusin natin instead na tapusin agad. Kapag may problema, pag-usapan natin. And please, kung may mali man sa akin, sabihin mo agad, ha? Gusto kong malaman para maitama ko. Ayokong ikaw lang ang laging umiintindi, at ayokong ikaw lang ang nag-aayos. Gusto kong pareho tayong matutong umintindi, mag-adjust, at lumaban para sa relationship natin. Hindi natin kailangang maging perfect, basta willing tayong ayusin ang mga bagay nang magkasama.
+<!-- FLOWERS -->
+<section class="screen" id="flower">
+  <div class="card">
+    <div class="flower-bouquet">💐</div>
+    <h1>Flowers For You!</h1>
+    <p>A little bouquet to make your day brighter.</p>
+    <p>You deserve all the happiness in the world. ♡</p>
+    <button onclick="bloomFlowers()">MAKE THEM BLOOM 🌷</button>
 
-And thank you kasi nandiyan ka, Trexy ko. Thank you for being so sweet, super duper caring, and for making me feel things na hindi ko ma-explain nang maayos. HWEHWEHWE. I'm really grateful na nakilala kita, and I hope I can make you feel as loved as you make me feel.
+    <div id="flowerResult" class="reveal">
+      <div class="sticker">🌸🌷🌺</div>
+      <h2>Just for you, my love!</h2>
+      <p>If I could, I would give you real flowers every day.</p>
+    </div>
 
-Trexy, habang wala pa ako diyan sa tabi mo, please lakasan mo muna ang loob mo, ha? Focus ka muna sa mga gawain mo, sa priorities mo, and sa sarili mo. Don't forget to take care of yourself, okay? Kapag pagod ka, magpahinga ka. Kapag mabigat na ang lahat, huwag mong sarilinin. You can always tell me what's bothering you. Hindi man kita mayakap physically ngayon, I hope I can still make you feel na may kakampi ka palagi. Nandito lang ako para sa'yo, mahal. Hindi mo kailangang harapin lahat nang mag-isa.
+    <button class="back" onclick="showScreen('gifts')">← Back</button>
+  </div>
+</section>
 
-And please remember, Trexy: you have someone who genuinely wants to see you happy, someone who wants to grow with you, and someone who's willing to learn how to love you better every day. Mahal na mahal kita, okay? HWEHWEHWE.
+<!-- LETTER -->
+<section class="screen" id="letter">
+  <div class="card">
+    <div class="envelope" onclick="openLetter()">💌</div>
+    <h1>My Love Letter</h1>
+    <p>A little letter from your Nunoy. Tap the envelope!</p>
+    <button onclick="openLetter()">OPEN MY LETTER ♡</button>
 
-Gusto ko pa nating mag-explore sa relationship na 'to. Ang dami pa nating memories na gagawin, places na pupuntahan, kwentuhan na hahabaan, at moments na balang araw maaalala natin habang nakangiti. Kapag may tampuhan, edi lambingan after mag-usap nang maayos. Kapag may misunderstanding, edi linawin natin. Kapag may problema, harapin natin nang magkasama. Basta let's keep choosing to understand each other, ha?
+    <div class="letter" id="letterContent">
+      <h2>To My Dearest Trexy ♡</h2>
 
-At kung sakaling mag-away tayo, bawal agad mag-resign sa relationship! May penalty na 300 trillion. JOKE LANG HAHAHAHAHAHAHA. Alam ko naman, Trexy, hindi mo ako basta-basta iiwan eh. HWEHWEHWE. Pero seryoso, I hope we always give each other a chance to talk, to understand, and to make things right. I want us to be happy together, not just kapag everything is easy, but also when things get a little difficult.
+      <p><strong>Hello, Trexyyy!</strong></p>
 
-So ayun, Trexy, I really hope gumana itong ginawa ko. HAHAHAHA. Imagine mo, nagco-code pa si Nunoy para lang gumawa ng little website para sa'yo. HWEHWEHWE. Hindi ako professional dito, pero I tried my best kasi gusto kitang mapasaya kahit sa simpleng paraan lang.
+      <p>Kamusta ka? Sana gumana na naman itong ginawa ko para sa'yo. Ano, panis ba? Ayos ba? Lupit, 'di ba? Sabi ko sa'yo gagawa ako ng bago, eh. HAHAHA</p>
 
-Thank you for coming into my life, Trexy. Thank you for being you. And thank you for giving me another reason to smile every day. If there's one thing I want you to remember after reading this, it's that mahal na mahal kita, Trexy ko, and I'm really, really happy na ikaw yung nakilala ko.
+      <p>Hindi ko rin alam kung gagana lahat, lalo na kung maglo-load nang maayos ang picture natin dito. Pero sana gumana lahat at sana magustuhan mo ulit itong ginawa ko para sa'yo. Pinag-isipan ko rin naman ito, kaya sana kahit papaano mapasaya ka ng munting surprise na ito.</p>
 
-I love you so muchhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh!!
+      <p>And I hope na okay na okay ka diyan, Trexy ko. Alam kong nakakalungkot minsan, pero hayaan mo na lang ang panahon pagdating sa pagkikita natin. Huwag mo munang masyadong isipin 'yon para hindi mawala ang focus mo diyan. Hehehe. Hindi naman ako aalis, nandito lang ako palagi.</p>
 
-MWA MWA MWA MWA MWA MWA MWAAMWAMWAMWAMWAMWA.
+      <p>Mahal na mahal kita, wala nang bawian.</p>
 
-Forever your makulit na Nunoy,
+      <p>Mag-ingat ka palagi, ah? I know na hindi tayo palaging okay, at may mga times na hindi rin ganoon kasaya ang lahat. May mga araw na baka pagod tayo, may tampuhan, o hindi natin agad maintindihan ang isa't isa. Pero sana kahit ganoon, piliin pa rin nating intindihin at mahalin ang isa't isa. Hindi naman kailangang maging perfect tayo palagi. Ang importante, pareho tayong willing na ayusin ang mga bagay-bagay.</p>
 
-Nunoy <33 :>
+      <p>Pero kahit ganoon, super duper happy pa rin ako sa atin. Like, grabe, wala na akong hihilingin pa. Ikaw lang talaga ang mahal ko. Sobrang saya ko na ikaw ang kasama ko sa journey na ito. Kahit simpleng kwentuhan lang, kulitan, tawanan, at kahit minsan asaran, malaking bagay na sa akin 'yon.</p>
 
-P.S. Kapag hindi gumana itong website, edi iiyak muna ako tapos aayusin ko ulit. HWEHWEHWEHEHEHE.</div>
- </section>
+      <p>Ayan, balita ko magkakaroon ka na ng work. Do your best sa work mo, ah? Bawi ka palagi kapag nagsimula ka na. Parehas na naman tayong magiging busy, pero don't worry, we have time naman para sa lahat ng gusto natin. Hindi naman kailangang madaliin ang lahat. Suportahan lang natin ang isa't isa sa mga pangarap natin. Gusto kong makita kang maabot lahat ng gusto mong marating, at sana alam mong isa ako sa mga taong palaging magiging proud sa'yo.</p>
 
- <section class="card">
-  <h2>One little question...</h2>
-  <p>Will you keep this little surprise in your heart?</p>
-  <button onclick="reply('Of course! I hope it made you smile.')">Of course</button>
-  <button onclick="reply('Hehe, basta sana napangiti kita.')">Maybe hehe</button>
-  <div id="answer"></div>
- </section>
+      <p>At kapag napagod ka, magpahinga ka rin, ha? Huwag mong masyadong pilitin ang sarili mo. Hindi mo kailangang kayanin lahat nang mag-isa. Nandito lang ako para makinig sa mga kwento mo, sa mga reklamo mo, sa mga masasayang balita mo, at kahit sa mga araw na wala kang masabing kahit ano.</p>
 
- <section class="card">
-  <h2>A tiny reminder</h2>
-  <p>You're appreciated more than you know. Don't forget to smile today, okay?</p>
-  <p class="small">Made with love, just for Trexy.</p>
- </section>
+      <p>Oh siya, Trexy, sana magustuhan mo itong ginawa ko. And I'm so happy for you kasi ang tataas palagi ng grades mo. Lagi kang mag-aral, ha? Tiis-tiis lang. Alam kong kaya mo 'yan. Nandito lang ako sa tabi mo sa bawat unos. Kahit hindi man ako palaging nasa tabi mo physically, sana maramdaman mo na sinusuportahan at minamahal kita palagi.</p>
 
- <footer>From Nunoy, with love.</footer>
-</main>
+      <p>And one more thing, thank you kasi dumating ka sa buhay ko. Thank you sa lahat ng memories, sa mga tawanan, sa mga kulit moments, at sa mga simpleng bagay na naging special dahil ikaw ang kasama ko. Sana marami pa tayong memories na magagawa together. Marami pa tayong kwentong tatawanan, pangarap na tutuparin, at araw na pagsasaluhan.</p>
+
+      <p>Hindi ko man alam kung ano ang mangyayari sa mga susunod na araw, ang alam ko lang ay gusto kitang makasama sa mga susunod pang chapters ng buhay ko.</p>
+
+      <p>So ayun lang, wala na akong masabi. Hehehe. Sana kapag binuksan mo ulit itong website, maalala mong may isang Nunoy na sobrang proud sa'yo, laging nag-aalala sa'yo, at higit sa lahat, mahal na mahal ka.</p>
+
+      <p><strong>Mahal na mahal na mahal na mahal kita, Trexyyy!</strong></p>
+
+      <p style="text-align:center">
+        Forever yours,<br><br>
+        <strong>Your Nunoy, your baby, your darling, your everything.</strong><br><br>
+        I love you so much. Hehehehehe. ♡
+      </p>
+    </div>
+
+    <button onclick="openLetter()">READ AGAIN ♡</button>
+    <br>
+    <button class="back" onclick="showScreen('gifts')">← Back</button>
+  </div>
+</section>
+
+<!-- LITTLE GIFT WITH PHOTO AND NOTES -->
+<section class="screen" id="gift">
+  <div class="card">
+    <div class="giftbox" onclick="openGift()">🎁</div>
+    <h1>A Little Gift For You</h1>
+    <p>A little something to remind you of us. ♡</p>
+
+    <button onclick="openGift()">OPEN YOUR GIFT ♡</button>
+
+    <div id="giftReveal" class="reveal">
+      <h2>My Favorite Picture ♡</h2>
+
+      <img src="couple.png" class="photo gift-photo"
+           alt="Our picture together">
+
+      <p class="cute-caption">
+        A little piece of us, saved here forever. ♡
+      </p>
+
+      <div class="ascii-note">
+<pre>
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢔⣶⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠗⡿⣾⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡼⠓⡞⢩⣯⡀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠰⡹⠁⢰⠃⣩⣿⡇⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⢷⣿⠿⣉⣩⠛⠲⢶⡠⢄⠐⣣⠃⣰⠗⠋⢀⣯⠁⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣯⣠⠬⠦⢤⣀⠈⠓⢽⣾⢔⣡⡴⠞⠻⠙⢳⡄
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣵⣳⠖⠉⠉⢉⣩⣵⣿⣿⣒⢤⣴⠤⠽⣬⡇
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢻⣟⠟⠋⢡⡎⢿⢿⠳⡕⢤⡉⡷⡽⠁
+⣧⢮⢭⠛⢲⣦⣀⠀⠀⠀⠠⡀⠀⠀⠀⡾⣥⣏⣖⡟⠸⢺⠀⠀⠈⠙⠋⠁⠀⠀
+⠈⠻⣶⡛⠲⣄⠀⠙⠢⣀⠀⢇⠀⠀⠀⠘⠿⣯⣮⢦⠶⠃⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢻⣿⣥⡬⠽⠶⠤⣌⣣⣼⡔⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⢠⣿⣧⣤⡴⢤⡴⣶⣿⣟⢯⡙⠒⠤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠘⣗⣞⣢⡟⢋⢜⣿⠛⡿⡄⢻⡮⣄⠈⠳⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠈⠻⠮⠴⠵⢋⣇⡇⣷⢳⡀⢱⡈⢋⠛⣄⣹⣲⡀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⣱⡇⣦⢾⣾⠿⠟⠿⠷⠷⣻⠧⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⠽⠞⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+</pre>
+
+<pre>
+⠀⢀⣀⣶⣶⣶⣀⡀⢀⣰⣶⣶⣶⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣤⡼⠿⠀⠀⠸⠿⣿⣿⠉⠀⠀⢸⣿⣤⡄⠀⠀⠀⠀⠀⠀⠀⠀
+⣿⡇⠀⠀⠀⠀⠀⠛⠃⠀⠀⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀
+⠿⣇⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⠿⠇⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠙⠛⣶⣶⣶⠀⠀⠀⠀⣶⣶⣿⠛⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠉⠉⢹⣿⣶⣾⣿⠋⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠛⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣶⣿⣷⣶⠀⣶⣿⣿⣷⣆⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠋⠉⠁⠻⠟⠁⠁⠉⠁⢻⣿
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣆⠀⠀⠀⠀⠀⢠⣾⠏⠁
+⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠻⣿⣄⢀⣤⣾⠛⠁⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠩⣿⡟⠁⠀⠀⠀⠀
+</pre>
+      </div>
+
+      <p class="cute-caption">A tiny note from me to you. ♡</p>
+    </div>
+
+    <button class="back" onclick="showScreen('gifts')">← Back</button>
+  </div>
+</section>
+
+<!-- QUESTION -->
+<section class="screen" id="question">
+  <div class="card">
+    <div class="sticker bounce">🐻💕</div>
+    <h1>A Little Question...</h1>
+    <p>Are you ready for one more surprise, Trexy? :3</p>
+
+    <button onclick="yesAnswer()">YES! ♡</button>
+    <button class="back" onclick="noAnswer()">NO... 👀</button>
+
+    <p id="noMessage"></p>
+    <button class="back" onclick="showScreen('gifts')">← Back</button>
+  </div>
+</section>
+
+<!-- ENDING -->
+<section class="screen" id="ending">
+  <div class="card">
+    <div class="sticker bounce">🐻💗</div>
+    <h1>You Made It!</h1>
+    <img src="couple.png" class="photo" alt="Our picture">
+    <h2>My Favorite Person ♡</h2>
+    <p>Thank you for being part of my little world.</p>
+    <p>I'm so lucky to have you, Trexy.</p>
+    <h1>I LOVE YOU ♡</h1>
+    <button onclick="showScreen('welcome')">BACK TO HOME</button>
+  </div>
+</section>
+
+<!-- MUSIC PLAYER -->
+<div class="music-player">
+  <select id="song" onchange="changeSong()">
+    <option value="">Our songs ♡</option>
+    <option value="https://youtu.be/wIuBcb2T55Q?si=1bi0Uc_9YKpc5WSq">My Kind of Woman</option>
+    <option value="https://youtu.be/r4ThHPMhmXQ?si=Wm35xOUBl_XOBCyS">I Like Her</option>
+  </select>
+  <button onclick="closeSong()">Close ♪</button>
+</div>
+
+<div id="playerContainer" class="player-box"></div>
 
 <script>
-function openLetter(){
- const letter=document.getElementById('letter');
- letter.style.display='block';
- letter.scrollIntoView({behavior:'smooth',block:'start'});
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active');
+  });
+
+  const target = document.getElementById(id);
+  if (target) target.classList.add('active');
+
+  window.scrollTo({top:0,behavior:'smooth'});
 }
-function reply(message){
- document.getElementById('answer').textContent=message;
+
+function openLetter() {
+  const letter = document.getElementById('letterContent');
+  letter.classList.add('show');
+  letter.scrollIntoView({behavior:'smooth',block:'nearest'});
+  confettiBurst();
 }
-function heart(){
- const h=document.createElement('div');
- h.className='float';
- h.textContent=['♡','♥','ღ'][Math.floor(Math.random()*3)];
- h.style.left=Math.random()*100+'vw';
- h.style.fontSize=(20+Math.random()*22)+'px';
- h.style.color='#d94e83';
- document.body.appendChild(h);
- setTimeout(()=>h.remove(),7000);
+
+function bloomFlowers() {
+  document.getElementById('flowerResult').classList.add('show');
+  confettiBurst();
 }
-setInterval(heart,850);
+
+function openGift() {
+  document.getElementById('giftReveal').classList.add('show');
+  confettiBurst();
+}
+
+function yesAnswer() {
+  confettiBurst();
+  showScreen('ending');
+}
+
+function noAnswer() {
+  document.getElementById('noMessage').innerText =
+    "Hehehe, okay lang! Take your time. May surprise pa rin ako para sa'yo. 🧸";
+  confettiBurst();
+}
+
+function confettiBurst() {
+  const pieces = ['💗','💕','🎀','✨','🌸','♡'];
+
+  for (let i=0;i<28;i++) {
+    const item = document.createElement('div');
+    item.className = 'confetti';
+    item.innerText = pieces[Math.floor(Math.random()*pieces.length)];
+    item.style.left = Math.random()*100+'vw';
+    item.style.fontSize = (15+Math.random()*20)+'px';
+    item.style.animationDuration = (2+Math.random()*2)+'s';
+    document.body.appendChild(item);
+    setTimeout(()=>item.remove(),4500);
+  }
+}
+
+// Floating hearts and sparkles
+setInterval(() => {
+  const item = document.createElement('div');
+  item.className = 'float-item';
+  item.innerText = ['♡','💗','💕','✨','🌸'][Math.floor(Math.random()*5)];
+  item.style.left = Math.random()*100+'vw';
+  item.style.fontSize = (15+Math.random()*20)+'px';
+  item.style.animationDuration = (5+Math.random()*5)+'s';
+  document.body.appendChild(item);
+  setTimeout(()=>item.remove(),10000);
+},650);
+
+// YouTube song selector
+function changeSong() {
+  const id = document.getElementById('song').value;
+  const container = document.getElementById('playerContainer');
+
+  if (!id) {
+    container.innerHTML = '';
+    container.classList.remove('show');
+    return;
+  }
+
+  container.innerHTML = `
+    <iframe
+      src="https://www.youtube.com/embed/${id}?playsinline=1&rel=0"
+      title="Our song"
+      allow="encrypted-media; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  `;
+
+  container.classList.add('show');
+}
+
+function closeSong() {
+  const container = document.getElementById('playerContainer');
+  container.innerHTML = '';
+  container.classList.remove('show');
+  document.getElementById('song').value = '';
+}
 </script>
+
 </body>
 </html>
